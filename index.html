@@ -1,6 +1,48 @@
 
+
 <!DOCTYPE html>
-<html>
-  <head>
-   
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şimşek Mqueen'le date</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+  <div class="header">
+  <h1>Nihat ek zam istiyor? </h1>
+</div>
+<div class="img">
+    <img src="mqueen.png" height="500" width="500px" alt="">
+
+</div>
+<div class="button">
+
+<button class="btn" id="yesButton" onclick="nextPage()">Evett</button>
+<button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Hayır</button>
+
+<script>
+ function nextPage() {
+        window.location.href = "nextpage.html";
+    }
+    
+    function moveButton() {
+        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+        document.getElementById('noButton').style.left = `${x}px`;
+        document.getElementById('noButton').style.top = `${y}px`;
+    }
+</script> 
+</div>
+</div>
+
+    </div>
+
+
+
+
+    
+  
+</body>
 </html>
