@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barışalım mı? Aycam❤️</title>
+    <title>Berkay Ayca❤️</title>
     <style>
         body {
             font-family: 'Comic Sans MS', sans-serif;
@@ -162,7 +162,7 @@
 </head>
 <body>
     <div id="question">
-        <h1>Barışalım mı aycammm 😊</h1>
+        <h1>Benimle Evlenir misin aycamm 😊</h1>
         <div class="heart">❤️</div>
         <div class="buttons">
             <button id="yes">EVET 😊</button>
@@ -171,7 +171,7 @@
     </div>
     
     <div id="response" class="hidden">
-        <h1>Oleyyyyyyy 🎉</h1>
+        <h1>Oleyyyyyyy Evliyiz🎉</h1>
         <div class="heart">💕</div>
         <div id="message">Seni seviyorum aycammmm 😘</div>
     </div>
@@ -179,7 +179,7 @@
     <div id="blocker">
         <div id="blocker-message">
             <h2>Kaçış yok! 😈</h2>
-            <p>Sayfayı kapatamazsın! Barışmadan gitmene izin vermeyeceğim!</p>
+            <p>Sayfayı kapatamazsın! Evlenmeden gitmene izin vermeyeceğim!</p>
             <p>Otomatik olarak EVET'e basılmış sayılıyorsun! ❤️</p>
         </div>
     </div>
@@ -206,10 +206,10 @@
             if (!responseDiv.classList.contains('hidden')) return;
             
             e.preventDefault();
-            e.returnValue = 'Barışmadan gitmek yok!';
+            e.returnValue = 'Evlenmeden gitmek yok!';
             showBlocker();
             forceYes();
-            return 'Barışmadan gitmek yok!';
+            return 'Evlenmeden gitmek yok!';
         });
         
         function showBlocker() {
