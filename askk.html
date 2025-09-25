@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beni Seviyor Musun?</title>
+<link rel="stylesheet" href="https://love.revonsoft.com.tr/7xK9pQ2a/css/style.css"
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1 id="question">Beni Seviyor Musun Aycaaamm</h1>
+<img src="1.gif" alt="Sevgi Gif" class="gif">
+  <div class="buttons">
+    <button class="yes" onclick="showLove()">Evet</button>
+    <button class="no" ontouchstart="moveNo(this)"  onmouseover="moveNo(this)">Hayır</button>
+  </div>
+  <div class="hearts" id="hearts"></div>
+  <div class="message" id="message"><span style="
+  background-color: rgba(255, 255, 255, 0.8); border-radius: 20px;">Ben de seni seviyorummm</span> <span class="heart-beat">❤️</span>
+    <br>
+    <img src="2.gif" alt="Daha çok sevgi" class="gif" style="width: 350px;">
+</div>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+       
+      setTimeout(() => {
+        document.getElementById('question').style.animation = 'fadeIn 1s ease-out forwards';
+      }, 500);
+    });
+    
+    function moveNo(btn) {
+  const buttonsContainer = btn.parentElement;
+  const containerRect = buttonsContainer.getBoundingClientRect();
+  const btnRect = btn.getBoundingClientRect();
+   
+  const btnWidth = btnRect.width;
+  const btnHeight = btnRect.height;
+   
+  const maxX = window.innerWidth - btnWidth;
+  const maxY = window.innerHeight - btnHeight;
+   
+  const margin = 10;
+  
+  let x, y, attempts = 0;
+  const maxAttempts = 50;  
+  
+  do {
+    x = margin + Math.random() * (maxX - 2 * margin);
+    y = margin + Math.random() * (maxY - 2 * margin);
+    
+    attempts++;
+    if (attempts > maxAttempts) {
+      return;
+    }
+    
+  } while (
+   
+    (Math.abs(x - (containerRect.left + containerRect.width/2)) < 150 && 
+     Math.abs(y - (containerRect.top + containerRect.height/2)) < 80)
+  );
+  
+  
+  btn.style.left = (x - containerRect.left) + 'px';
+  btn.style.top = (y - containerRect.top) + 'px';
+  
+  
+  btn.style.position = 'absolute';
+  btn.style.right = 'auto';
+  btn.style.bottom = 'auto';
+   
+  btn.style.backgroundColor = getRandomColor();
+}
+    
+    function getRandomColor() {
+      const colors = ['#0061FC', '#f71111', '#8a017e', '#11626b', '#FFC300'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    function showLove() {
+      
+      document.getElementById('question').style.display = 'none';
+      document.querySelector('.buttons').style.display = 'none';
+      document.querySelector('.gif').style.display = 'none';
+      
+       
+      const message = document.getElementById('message');
+      message.style.display = 'block';
+      message.style.animation = 'fadeIn 1s ease-out forwards, pulse 2s ease-in-out infinite, wave 4s ease-in-out infinite';
+      
+     
+      startHeartAnimation();
+    }
+    
+    function startHeartAnimation() {
+      
+      const interval = setInterval(createHearts, 200);
+      
+      
+      setTimeout(() => {
+        clearInterval(interval);
+      }, 30000);
+    }
+    
+    function createHearts() {
+      const heartsContainer = document.getElementById('hearts');
+      const heartCount = 20;
+      
+      for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+         
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = (Math.random() * 100 + 10) + 'vh';
+        
+        
+        const size = Math.random() * 30 + 20;
+        heart.style.fontSize = size + 'px';
+        
+        
+        const duration = Math.random() * 3 + 3;
+        heart.style.animationDuration = duration + 's';
+        
+        
+        heart.style.animationDelay = Math.random() + 's';
+        
+         
+        const hearts = ['❤️‍🔥', '💖', '💗', '💓', '💛','💚','💙'];
+        heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+        
+        heartsContainer.appendChild(heart);
+        
+       
+        setTimeout(() => {
+          heart.remove();
+        }, duration * 1000);
+      }
+    }
+  </script>
+
+<footer>
+  Instagram: <a href="https://instagram.com/azadcoderr" target="_blank">@azadcoderr</a>
+</footer>
+</body>
+
+<script>
+ 
+document.addEventListener('keydown', function (e) {
+  if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+    e.preventDefault()
+    alert('Hile yapmak yok!')
+  }
+})
+ 
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault()
+  alert('Sağ tık kapalı, hile yapma!')
+})
+ 
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Tab') {
+    e.preventDefault()
+
+    for (let i = 0; i < 60; i++) { 
+      const div = document.createElement('div')
+      div.textContent = 'Hile yapmak yok!' 
+      div.style.position = 'fixed'
+      div.style.top = Math.random() * 90 + '%'
+      div.style.left = Math.random() * 90 + '%'
+      div.style.color = 'red'
+      div.style.fontSize = '24px'
+      div.style.fontWeight = 'bold'
+      div.style.zIndex = 9999
+      div.style.pointerEvents = 'none'
+      document.body.appendChild(div)
+
+      setTimeout(() => div.remove(), 1500)
+    }
+  } else if (e.key === 'F12') {
+    e.preventDefault()
+    alert('F12 ile geliştirici araçlarını açamazsın!')
+  }
+})
+
+</script>
+</html>
